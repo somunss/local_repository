@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+    
+    <class name="com.user.bean.Category" table="category">
+    <id name="cid" column="cid">
+    <generator class="uuid"></generator>
+    </id>
+    <property name="categoryname" column="categoryname" type="string"></property>
+    <set name="books" cascade="save-update,delete" lazy="false">
+    <key column="cid"/>
+    <one-to-many class="com.user.bean.Book"/>
+    
+    </set>
+    
+    </class>
+    
+    
+    </hibernate-mapping>

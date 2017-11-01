@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+   <class name="com.user.bean.Student" table="student">
+   <id name="sid" column="sid">
+   <generator class="uuid"></generator>
+   </id>
+   <property name="sname" column="sname" type="string">
+   </property>
+   <!-- 对于多对多的关系来说，set多一个属性table,这个table是指出两张表之间的关系表 -->
+   <set name="courses" table="sc">
+   <!-- 这个key表示当前的这个对象对应中间表的外键值 -->
+   <key column="sid"></key>
+   <!-- class代表对应set集合中装载的类的全类名 -->
+   <many-to-many class="com.user.bean.Course" column="cid">
+   </many-to-many>
+   </set>
+   
+   
+   
+   
+   </class>	
+    
+    </hibernate-mapping>

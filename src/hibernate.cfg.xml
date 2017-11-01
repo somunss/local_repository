@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	
+<hibernate-configuration>
+<session-factory>
+
+	<property name="hibernate.connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+
+	<property name="hibernate.connection.url">
+		jdbc:mysql:///user
+
+	</property>
+	<property name="hibernate.connection.username">root</property>
+
+	<property name="hibernate.connection.password">root</property>
+
+	<!-- hibernate方言 -->
+
+	<property name="hibernate.dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+	<property name="hbm2ddl.auto">validate</property>
+	<!--<property name="hbm2ddl.auto">update</property>-->
+	<!--可选配置  -->
+
+	<property name="hibernate.show_sql">true</property>
+
+	<property name="hibernate.format_sql">true</property>
+	<property name="hibernate.connection.autocommit">false</property>
+	<!-- 
+		<property name="connection.provider_class">
+		org.hibernate.connection.C3P0ConnectionProvider
+		</property>
+		<property name="c3p0.max_size">20</property>
+		<property name="c3p0.min_size">5</property>
+		<property name="c3p0.timeout">100</property>
+		<property name="c3p0.idle_test_period">3000</property>
+		
+	-->
+	<property name="dialect"></property>
+
+	<mapping resource="com/user/bean/User.hbm.xml" />
+	<mapping resource="com/user/bean/Book.hbm.xml" />
+	<mapping resource="com/user/bean/Category.hbm.xml" />
+	<mapping resource="com/user/bean/Course.hbm.xml" />
+	<mapping resource="com/user/bean/Student.hbm.xml" />
+</session-factory>
+
+
+</hibernate-configuration>

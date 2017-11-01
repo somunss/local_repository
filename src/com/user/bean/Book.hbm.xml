@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+    
+    <class name="com.user.bean.Book" table="book">
+    <id name="bid" column="bid">
+    <generator class="uuid"></generator>
+    </id>
+    <property name="bookname" column="bookname" type="string"></property>
+    <many-to-one name="category" column="cid" class="com.user.bean.Category" cascade="save-update">
+    </many-to-one>
+    
+    
+    </class>
+    
+    
+    </hibernate-mapping>
